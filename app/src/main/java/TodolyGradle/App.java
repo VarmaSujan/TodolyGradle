@@ -3,14 +3,13 @@
  */
 package TodolyGradle;
 
-import java.util.Scanner;
+
 
 public class App {
 
     public String getGreeting() {
         return ">> Welcome to Todoly!";
     }
-
 
     public static void main(String[] args) {
 
@@ -19,4 +18,5 @@ public class App {
         select.displayMenu();
 
     }
+
 }
