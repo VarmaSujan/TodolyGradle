@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class SelectionMenu {
 
-    public Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
     private boolean quit = false;
     TaskPanel tasked = new TaskPanel();
     int choice;
@@ -25,20 +25,12 @@ public class SelectionMenu {
 
     // Displays the main menu of the application
     public void mainMenu() {
-
+        int choice;
         while (!quit) {
             System.out.println(">> MAIN MENU:");
-            System.out.println(">> (1) Show TasK List (by date or project)");
-            System.out.println(">> (2) Add New Task");
-            System.out.println(">> (3) Edit Task (mark done, update, delete");
-            System.out.println(">> (4) Exit");
-            System.out.println("Please choose an option by number: ");
-            try {
-                choice = Integer.parseInt(scan.nextLine());
-                if (choice < 1 ||choice > 4) System.out.println(" Not a valid menu option, please select again");
-            } catch (NumberFormatException nfe){
-                System.out.println("NumberFormatException: " + nfe.getMessage());
-            }
+            System.out.println(">> (1) Show TasK List (by date or project)\n>> (2) Add New Task\n>> (3) Edit Task (mark done, update, delete\n>> (4) Exit\nPlease choose an option by number: ");
+            choice = Validation.validateMainMenuInput(scan.nextLine());
+
             switch (choice) {
                 case 1:  // Displays the tasks list SUBMENU
                     showTaskListMenu();
@@ -46,7 +38,7 @@ public class SelectionMenu {
 
                 case 2:  //creates a new task
                     tasked.createTask();
-                    // switch ()
+                    mainMenu();
                     return;
 
                 case 3:  //edit saved tasks
@@ -63,17 +55,14 @@ public class SelectionMenu {
 
     public void showTaskListMenu(){
         System.out.println("Here is a list of your tasks: ");
-        //display task as they were entered
+        //tasked.displayTaskList();
+       //for (int i=0; i < tasked.getTaskList.
         System.out.println(">> SUBMENU:\n>> (1) Sort tasks by date \n>> (2) Sort tasks by project\n>> (3) Return to main menu\nPlease choose an option by number: ");
-        try {
-            choice = Integer.parseInt(scan.nextLine());
-            if (choice < 1 ||choice > 3) System.out.println(" Not a valid menu option, please select again");
-        } catch (NumberFormatException nfe){
-            System.out.println("NumberFormatException: " + nfe.getMessage());
-        }
+        int choice = Validation.validateShowTaskListMenuInput(scan.nextLine());
+
         switch (choice) {
             case 1:  // sorts list by date
-
+                        System.out.println("test");
                 break;
 
             case 2:  //sort list by project

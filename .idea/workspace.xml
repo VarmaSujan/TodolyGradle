@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fde7971-c65e-4f9d-bb72-0c90ee6d1e2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/TodolyGradle/FileHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/TodolyGradle/Validation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/TodolyGradle/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/TodolyGradle/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/TodolyGradle/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/TodolyGradle/SelectionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/TodolyGradle/SelectionMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/TodolyGradle/TaskPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/TodolyGradle/TaskPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/TodolyGradle/Tasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/TodolyGradle/Tasks.java" afterDir="false" />
@@ -158,7 +154,7 @@
       <option name="presentableId" value="Default" />
       <updated>1614961497395</updated>
       <workItem from="1614961501635" duration="1971000" />
-      <workItem from="1614963510559" duration="48908000" />
+      <workItem from="1614963510559" duration="67928000" />
     </task>
     <servers />
   </component>
