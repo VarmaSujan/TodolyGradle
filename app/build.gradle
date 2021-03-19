@@ -41,6 +41,9 @@ run {
     standardInput = System.in
 }
 
+
+// Attempted to create a jar file to run the app as well but despite following Kwabena's instructions perfectly, ther
+// is still an error in the syntax below.
 //jar {
 //    manifest {
 //        attributes {

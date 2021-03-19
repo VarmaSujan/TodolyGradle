@@ -11,4 +11,3 @@ In the root folder, start the application with Gradle's run command.
     gradle run --console plain
 ...
 
-[comment]: <> (### Run with jar file)
