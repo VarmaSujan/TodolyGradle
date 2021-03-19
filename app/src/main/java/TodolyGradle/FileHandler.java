@@ -12,7 +12,7 @@ import java.util.Date;
 
 
 public class FileHandler {      //Class resposnible for writing to file and reading from file
-    private String path = ".D:\\IntelliJWorkSpace\\TodolyGradle\\app\\src\\main\\resources\\"; //Absolute path included, could not solve the repository path error.
+    private String path = "D:\\IntelliJWorkSpace\\TodolyGradle\\app\\src\\main\\resources\\"; //Absolute path included, could not solve the repository path error.
 
     //Data Stream2
     public void writeAsData1(ArrayList<Task> taskList) {           //method to write to file

@@ -7,10 +7,17 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
+
     @Test void appHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
 
+    @Test void testGettingValue(){
+        App classUnderTest = new App();
+        SelectionMenu select = new SelectionMenu();
+        // calls the mainMenu
+        select.mainMenu();
+    }
 
 }

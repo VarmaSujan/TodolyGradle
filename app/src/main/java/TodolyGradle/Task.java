@@ -51,6 +51,22 @@ public class Task implements Serializable, Comparable<Task> {
                 return getTaskDate().compareTo(t.getTaskDate());
         }
 
+        public void setTitle(String title) {
+                this.title = title;
+        }
+
+        public void setStatus(String status) {
+                this.status = status;
+        }
+
+        public void setDate(Date date) {
+                this.date = date;
+        }
+
+        public void setProject(String project) {
+                this.project = project;
+        }
+
 //        @Override
 //        public int compare(Task t) {
 //               return getProject().compareTo(t.getProject());

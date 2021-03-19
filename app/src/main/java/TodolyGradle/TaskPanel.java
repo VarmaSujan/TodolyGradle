@@ -12,6 +12,7 @@ import java.util.*;
 
 public class TaskPanel {
     public ArrayList<Task> taskList = new ArrayList<>();
+    FileHandler file = new FileHandler();
 
 
 //    Thought it would be nice to have a short delay between prompts but decided to keep the application simple.
@@ -38,7 +39,7 @@ public class TaskPanel {
             System.out.print("Please enter a task title: ");
             title = scanner.nextLine();
         }
-        System.out.print("Please enter a project title: ");
+        System.out.print("Please enter a project date: ");
         String project = scanner.nextLine();
         do {                                //Will prompt the user for a valid date until a valid date is entered.
             date = getDateInput();
@@ -66,7 +67,6 @@ public class TaskPanel {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Please enter a date (YYYY-MM-DD): ");
         Date date = Validation.validateDate(scanner.nextLine());
-        scanner.close();
         return date;
     }
 
@@ -138,33 +138,115 @@ public class TaskPanel {
             return;
         }
         System.out.println("Task found");
-        System.out.println(">> (1) Update task\n>> (2) Mark done\n>> (3) Delete Task\n>> (4) Save & Exit\nPlease choose an option by number: ");
-        int choice = Validation.validateMenuInput(scanner.nextLine());
-        while (true)
+        while (true) {
+            System.out.println(">> (1) Update task\n>> (2) Mark done\n>> (3) Delete Task\n>> (4) Return to previous menu\nPlease choose an option by number: ");
+            int choice = Validation.validateMenuInput(scanner.nextLine());
             switch (choice) {
                 case 1:  // sorts list by date
-//                updateTask;
-                    return;
+                    upDateTask(editTitle);
+                    break;
 
                 case 2:  //sort list by project
-//                markDone;
-//                mainMenu();
-                    return;
+                    markDone(editTitle);
+                    break;
 
                 case 3:  //returns to main menu
-//                deleteTask;
-//                mainMenu();
-                    return;
+                    deleteTask(editTitle);
+                    break;
 
                 case 4:  //saveExitTask();
-
-                    //Write to file
-                    //  file.writeAsData(tasked.taskList);
-                    System.out.println("Goodbye!");
-                    //Exits the program
-                    scanner.close();
                     return;
             }
+        }
+
+    }
+    public void upDateTask (String editTitle) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(">> (1) Task Tile\n>> (2) Project Title\n>> (3) Date \n>> (4) Return to previous menu\nPlease choose an task attribute to change: ");
+        int choice = Validation.validateMenuInput(scanner.nextLine());
+
+        switch(choice){
+            case 1:  // sorts list by date
+                System.out.println("Specify new Title");
+                String newTitle = scanner.nextLine();
+                while (!checkIfTitleIsUnique(newTitle)) {
+                    System.out.println("Warning tile already exists!!!! Please enter a unique title.");
+                    System.out.print("Please enter a task title: ");
+                    newTitle = scanner.nextLine();
+                }
+                upDateTaskValue(editTitle, "Title", newTitle);
+                break;
+
+            case 2:  //sort list by project
+                System.out.println("Specify new Project Title");
+                String newProject = scanner.nextLine();
+                upDateTaskValue(editTitle, "Project", newProject);
+                break;
+
+            case 3:  //returns to main menu
+                System.out.println("Specify new Date");
+                Date date = null;
+                do {                                //Will prompt the user for a valid date until a valid date is entered.
+                    date = getDateInput();
+                } while (date == null);
+                upDateTaskDate(editTitle, date);
+                break;
+
+            case 4:  //saveExitTask();
+
+                //Write to file
+                //  file.writeAsData(tasked.taskList);
+                System.out.println(
+                        "Goodbye!");
+                //Exits the program
+                return;
+        }
+    }
+
+    private void upDateTaskDate(String editTitle, Date date) {
+        for (int i = 0; i < taskList.size(); i++) {
+            if (taskList.get(i).getTitle().equals(editTitle)) {
+                taskList.get(i).setDate(date);
+                return;
+            }
+        }
+    }
+
+    private void upDateTaskValue(String editTitle, String valueType, String updateValue) {
+        for (int i = 0; i < taskList.size(); i++) {
+            if (taskList.get(i).getTitle().equals(editTitle)){
+                if (valueType.equals("Title")){
+                    taskList.get(i).setTitle(updateValue);
+                }
+                else if (valueType.equals("Project")){
+                    taskList.get(i).setProject(updateValue);
+                }
+                return;
+        }
+
+    }
+
+}
+
+
+
+    private void deleteTask(String editTitle) {
+        for (int i = 0; i < taskList.size(); i++) {
+            if (taskList.get(i).getTitle().equals(editTitle)) {
+
+                taskList.remove(i);
+            }
+        }
+    }
+
+    private void markDone(String editTitle) {
+        for (int i = 0; i < taskList.size(); i++) {
+            if (taskList.get(i).getTitle().equals(editTitle)) {
+
+                taskList.get(i).setStatus("Complete");
+                return;
+            }
+        }
 
     }
 
@@ -177,7 +259,12 @@ public class TaskPanel {
         return null;
 
     }
-    public void delTask () {
-    }
+
+//    private void refreshFileInfo(){
+//
+//    }
+
+
+
 
 }

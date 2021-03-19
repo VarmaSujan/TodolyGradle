@@ -54,6 +54,7 @@ public class SelectionMenu {
 
                 case 3:  //edit saved tasks
                     tasked.editTask();
+                    mainMenu();
                     return;
 
                 case 4:  //saveExitTask();
